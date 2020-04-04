@@ -1,0 +1,4 @@
+[submodule "gwpcc"]
+	path = lib/gwpcc
+	url = git@github.com:OdysseyScorpio/gwpcc.git
+	branch = master

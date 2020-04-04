@@ -1,0 +1,11 @@
+LOG_LEVEL = 'DEBUG'
+DEBUG_FORCE_RUN_NOW = False
+DEBUG_DRY_RUN = False
+
+DATABASE_IP = '127.0.0.1'
+DATABASE_PORT = 6379
+DEBUG_MODE = True
+API_DB_CONFIG = {
+    'm1': 1,
+    'm2': 2
+}
