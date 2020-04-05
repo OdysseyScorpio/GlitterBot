@@ -1,6 +1,6 @@
 from time import sleep
 
-import sentry_sdk
+#import sentry_sdk
 
 import settings
 from core.routines import market_values, stock_management
@@ -11,7 +11,7 @@ from lib.runtime_config import RuntimeConfig
 
 
 def main():
-    sentry_sdk.init("https://e73e3574f35744afa77647d7170b3c10@sentry.thecodecache.net/5")
+    #sentry_sdk.init("https://e73e3574f35744afa77647d7170b3c10@sentry.thecodecache.net/5")
 
     Logger().log.debug('Glitterbot Starting Up...')
 
