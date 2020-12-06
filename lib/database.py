@@ -34,8 +34,15 @@ class Database(object):
             else:
                 raise ValueError('Unknown API Version')
 
+            try:
+                ENV_GWP_DB_NAME = os.environ.get("ENV_GWP_DB_NAME")
+                ENV_GWP_DB_PORT = os.environ.get("ENV_GWP_DB_PORT")
+            except:
+                ENV_GWP_DB_NAME = settings.DATABASE_IP
+                ENV_GWP_DB_PORT = settings.DATABASE_PORT
+                
             # Open and connect to the database, Decode responses in UTF-8 (default)
-            db = redis.Redis(settings.DATABASE_IP, settings.DATABASE_PORT, decode_responses=True, db=db_number)
+            db = redis.Redis(ENV_GWP_DB_NAME, ENV_GWP_DB_PORT, decode_responses=True, db=db_number)
             db.set_response_callback('GET', self.__parse_boolean_responses_get)
             db.set_response_callback('HGET', self.__parse_boolean_responses_get)
             db.set_response_callback('HGETALL', self.__parse_boolean_responses_hgetall)
