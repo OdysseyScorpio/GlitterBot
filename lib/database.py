@@ -1,7 +1,7 @@
 from json import JSONDecoder
 
 import redis
-
+import os
 import settings
 
 
@@ -42,7 +42,7 @@ class Database(object):
                 ENV_GWP_DB_PORT = settings.DATABASE_PORT
                 
             # Open and connect to the database, Decode responses in UTF-8 (default)
-            db = redis.Redis(ENV_GWP_DB_NAME, ENV_GWP_DB_PORT , decode_responses=True, db=db_number)
+            db = redis.Redis(ENV_GWP_DB_NAME, ENV_GWP_DB_PORT, decode_responses=True, db=db_number)
             db.set_response_callback('GET', self.__parse_boolean_responses_get)
             db.set_response_callback('HGET', self.__parse_boolean_responses_get)
             db.set_response_callback('HGETALL', self.__parse_boolean_responses_hgetall)
